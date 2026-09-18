@@ -1,64 +1,45 @@
 # Suno Video Factory
 
-**Turn any Suno track into ready-to-post TikTok / YouTube Shorts / Reels in under 15 minutes.**
+**Turn any Suno track into ready-to-post Reels in minutes.**
 
-Built for **Plan Life Grateful** and the Ummah Anthems ecosystem.
-
----
-
-## What This Repo Gives You
-
-| Folder | Purpose |
-|--------|---------|
-| `/prompts` | Exact video prompts (CapCut, Runway, Kling, Luma, Pika style) |
-| `/ugc-scripts` | Ready-to-film UGC scripts that convert |
-| `/templates` | Shot lists + on-screen text templates |
-| `/workflow` | 15-minute production system |
-| `/content-calendar` | 14-day posting plan that sells your music + products |
+Built for **Plan Life Grateful**.
 
 ---
 
-## Fast Start (Do This Today)
+## START HERE (Easiest Way)
 
-1. Pick any track from [suno.com/@planlifegrateful](https://suno.com/@planlifegrateful)
-2. Open `/prompts/master-video-prompt.md`
-3. Copy the prompt → paste into CapCut / your video AI
-4. Use the matching UGC script from `/ugc-scripts`
-5. Post using the Day 1 template in `/content-calendar`
+Go to this file and follow it exactly:
 
----
+### → [capcut/EASY-MODE.md](capcut/EASY-MODE.md)
 
-## Core Principle
-
-**Audio is the product. Video is the distribution weapon.**
-
-Every video must do one of three things:
-1. Grow the Suno account
-2. Drive listeners to a specific track
-3. Sell the Ummah Anthems pack or Grateful Life system
+It is a 7-minute system with zero decisions.
 
 ---
 
-## Recommended Stack (2026)
+## Quick Links
 
-- **Audio**: Suno v5.5 (you already have this)
-- **Video**: CapCut (free + fast) or Kling / Luma Dream Machine
-- **Text overlays**: CapCut auto-captions + manual emotional lines
-- **Posting**: TikTok first → YouTube Shorts → Instagram Reels
-
----
-
-## Next Actions
-
-1. Generate 5 videos this week using the Master Prompt
-2. Post daily for 14 days using the calendar
-3. Track which track + style gets the most saves / shares
-4. Double down on the winning formula
+| What you need | File |
+|---------------|------|
+| **Make a Reel right now** | [EASY-MODE.md](capcut/EASY-MODE.md) |
+| Copy-paste text only | [QUICK-TEXT.md](capcut/QUICK-TEXT.md) |
+| Full CapCut system | [capcut/](capcut/) |
+| Video prompts | [prompts/master-video-prompt.md](prompts/master-video-prompt.md) |
+| UGC talking scripts | [ugc-scripts/hook-scripts.md](ugc-scripts/hook-scripts.md) |
+| 14-day posting plan | [content-calendar/14-day-plan.md](content-calendar/14-day-plan.md) |
 
 ---
 
-**May every video carry barakah and reach the people who need it.**
+## How This Works
 
-Repo: https://github.com/planlifegrateful-lang/suno-video-factory  
-Suno: https://suno.com/@planlifegrateful  
-App: Plan Life Grateful Shukr OS
+1. Open **EASY-MODE.md**
+2. Duplicate your CapCut master template
+3. Drop Suno audio + background video
+4. Add the text from the cheat sheet
+5. Export and post
+
+That’s the whole system.
+
+---
+
+**Suno:** [suno.com/@planlifegrateful](https://suno.com/@planlifegrateful)  
+**Repo:** https://github.com/planlifegrateful-lang/suno-video-factory
