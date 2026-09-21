@@ -1,60 +1,18 @@
-# Quick Text Bank – Copy & Paste Only
+# Quick Text — 8 on-screen lines
 
-No thinking. Just copy.
+Copy one line. Paste on screen. White text, black outline.
 
----
+1. Before the phone wins
+2. Alhamdulillah for this test
+3. Ease is already written
+4. Still standing
+5. Three blessings. Out loud.
+6. I planned. Now I trust.
+7. Bismillah. Begin again.
+8. Hasbunallahu wa ni’mal wakeel
 
-## HOOKS (use at the start)
-
-- Alhamdulillah for this test
-- Ease is already written
-- Still standing
-- I planned. Now I trust.
-- Bismillah. Begin again.
-- Hasbunallah
-- Ya Allah, increase me
-- This difficulty is temporary
-
----
-
-## EMOTIONAL PEAK LINES (middle of video)
-
-- Alhamdulillah for this difficulty — ease is already written for me
-- Hasbunallahu wa ni’mal wakeel. I am grateful You are enough for me
-- I refuse despair. Your mercy is greater
-- Ya Allah, I am grateful. Increase me in every good
-- This result is from You alone. Alhamdulillah
-- I planned, I worked, now I trust You completely
-
----
-
-## END CARDS
-
+End card (last 3s, two lines):
 ```
-Alhamdulillah!!
+{Track Name}
 @planlifegrateful
 ```
-
-```
-Still Standing
-@planlifegrateful
-```
-
-```
-Bismillah Begin
-@planlifegrateful
-```
-
-```
-Ya Rabb
-@planlifegrateful
-```
-
-```
-Limitless Mind
-@planlifegrateful
-```
-
----
-
-Just copy → paste → move on.

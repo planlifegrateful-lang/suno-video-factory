@@ -1,0 +1,22 @@
+{
+  "job_id": "2026-09-21_grateful-morning",
+  "content_mode": "motivational-reel",
+  "status": "draft",
+  "platforms": ["reels", "tiktok", "shorts"],
+  "source_assets": [
+    "ugc-scripts/packs/grateful-morning.md",
+    "prompts/packs/grateful-morning-visual.md"
+  ],
+  "rights": {
+    "audio": "NEEDS_REVIEW",
+    "visuals": "NEEDS_REVIEW",
+    "voice": "NEEDS_REVIEW"
+  },
+  "prompt_versions": {
+    "visual": "prompts/packs/grateful-morning-visual.md"
+  },
+  "editor": "",
+  "reviewer": "",
+  "approved_at": null,
+  "disclosures": []
+}

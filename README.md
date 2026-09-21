@@ -25,7 +25,10 @@ It is a 7-minute system with zero decisions.
 | Full CapCut system | [capcut/](capcut/) |
 | Video prompts | [prompts/master-video-prompt.md](prompts/master-video-prompt.md) |
 | UGC talking scripts | [ugc-scripts/hook-scripts.md](ugc-scripts/hook-scripts.md) |
+| Grateful Morning pack | [ugc-scripts/packs/grateful-morning.md](ugc-scripts/packs/grateful-morning.md) |
 | 14-day posting plan | [content-calendar/14-day-plan.md](content-calendar/14-day-plan.md) |
+| 7-day Shorts slice | [content-calendar/7-day-shorts-slice.md](content-calendar/7-day-shorts-slice.md) |
+| Copilot agents + skills | [workflow/copilot-first-session.md](workflow/copilot-first-session.md) |
 
 ---
 
