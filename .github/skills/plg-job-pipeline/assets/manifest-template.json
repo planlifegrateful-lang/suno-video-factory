@@ -1,0 +1,13 @@
+{
+  "job_id": "YYYY-MM-DD_slug",
+  "content_mode": "motivational-reel",
+  "status": "draft",
+  "platforms": ["reels"],
+  "source_assets": [],
+  "rights": {"audio": "NEEDS_REVIEW", "visuals": "NEEDS_REVIEW", "voice": "NEEDS_REVIEW"},
+  "prompt_versions": {},
+  "editor": "",
+  "reviewer": "",
+  "approved_at": null,
+  "disclosures": []
+}

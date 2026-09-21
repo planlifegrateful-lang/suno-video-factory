@@ -1,36 +1,52 @@
-# Copilot first session — execute this
+# Copilot operating kit
 
-## Install (your machine)
+## Install
 - macOS: `brew install --cask github-copilot-app`
-- or latest: https://github.com/github/app/releases/latest (v1.1.23+)
+- Latest: https://github.com/github/app/releases/latest
 - Sign in as planlifegrateful-lang
-- Settings → Experimental → enable Impeccable
-- Open this repo
+- Settings → Experimental → Impeccable
+- Customize → Skills: confirm repo skills are listed
+- Agent picker: reel-producer / content-ops / offer-architect
 
-## Session 1 (do this first)
-Open issue #1 if it exists, else paste:
+## Skills in this repo
+| Skill | Use when |
+|---|---|
+| plg-brand-voice | any copy |
+| plg-reel-pack | track → reel pack |
+| plg-job-pipeline | jobs/ + manifests |
+| plg-content-calendar | posting plans |
+| plg-sales-pack | Gumroad/Payhip |
+| plg-skill-builder | new skills/agents |
 
-```
-Read AGENTS.md and capcut/EASY-MODE.md.
-Create ugc-scripts/packs/grateful-morning.md for a 30s Reel:
-track theme = waking up with gratitude instead of anxiety.
-Use the plg-reel-pack skill format.
-Do not invent new CapCut tools. Link EASY-MODE only.
-Then add one Quick Links row in README.md.
-```
+## Agents
+| Agent | File |
+|---|---|
+| reel-producer | .github/agents/reel-producer.md |
+| content-ops | .github/agents/content-ops.md |
+| offer-architect | .github/agents/offer-architect.md |
 
-Mode: Plan → approve → Interactive.
-When diff looks right: create PR from the session.
-Leave desk: `/remote on` and review on GitHub Mobile.
+## Session 1
+Start FROM issue #1 with agent **reel-producer**.
 
 ## Session 2
-```
-Add a 7-day Shorts calendar slice to content-calendar/ that reuses existing hook-scripts.md.
-One file. No redesign of the 14-day plan.
-```
+Issue #2 with agent **content-ops**.
 
 ## Session 3
+Issue #3 with agent **reel-producer**.
+
+## Invocation examples
 ```
-Tighten capcut/QUICK-TEXT.md so every line is copy-paste ready for on-screen type.
-Max 8 lines. Keep brand voice.
+/agent reel-producer
+Build a reel pack for theme: waking up with gratitude instead of anxiety.
+Use plg-reel-pack.
+```
+
+```
+/agent content-ops
+Open a job folder for today's Grateful Morning reel. Draft only.
+```
+
+```
+/agent offer-architect
+Turn ummah-anthems-pack + this factory into a $17 Gumroad listing draft under offers/.
 ```
