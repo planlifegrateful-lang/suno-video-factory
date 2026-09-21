@@ -1,0 +1,24 @@
+# Job Manifest
+
+Copy this template to `jobs/{date}_{slug}/manifest.json` and fill every field before review.
+
+```json
+{
+  "schema_version": "1.0",
+  "job_id": "YYYY-MM-DD-slug",
+  "content_mode": "ugc_ad|motivational|faceless|product_demo|ai_avatar|music_led|cinematic",
+  "status": "draft|needs_review|approved|blocked|published",
+  "target_platforms": ["tiktok", "instagram_reels", "youtube_shorts"],
+  "duration_seconds": 30,
+  "source_assets": [],
+  "rights_status": "needs_review",
+  "ai_disclosure_required": "needs_review",
+  "prompt_versions": [],
+  "claims_requiring_review": [],
+  "reviewer": null,
+  "approved_at": null,
+  "publish_urls": []
+}
+```
+
+Never place passwords, API keys, access tokens, or private personal data in this file.
