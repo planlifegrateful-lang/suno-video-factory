@@ -1,31 +1,31 @@
-# CapCut Automation for Reels – Plan Life Grateful
+# CapCut — Plan Life Grateful
 
-**Goal:** Turn any Suno track into a finished Reel in under 8 minutes with almost zero manual work.
+**Front door:** [EASY-MODE.md](EASY-MODE.md)  
+7 minutes. Zero decisions. That file wins if anything else disagrees.
 
-This folder gives you the exact CapCut system used for high-performing Islamic motivational Reels.
+**Lines:** [QUICK-TEXT.md](QUICK-TEXT.md) (8 on-screen lines only)
+
+**Today’s pack:** [../ugc-scripts/packs/grateful-morning.md](../ugc-scripts/packs/grateful-morning.md)
 
 ---
 
-## What’s Inside
+## Reference (only if EASY-MODE is not enough)
 
 | File | Purpose |
 |------|---------|
-| `01-master-template.md` | Exact CapCut project structure to copy every time |
-| `02-text-presets.md` | Pre-written on-screen text + timing |
-| `03-batch-workflow.md` | How to produce 5–10 Reels in one sitting |
-| `04-ai-prompts-capcut.md` | Prompts optimized for CapCut AI features |
-| `05-auto-caption-settings.md` | Perfect caption style for retention |
-| `06-export-settings.md` | One-click export settings for TikTok + Shorts + Reels |
+| `01-master-template.md` | Layer stack + timeline |
+| `02-text-presets.md` | Font / stroke / position |
+| `03-batch-workflow.md` | 5–10 Reels in one sitting |
+| `04-ai-prompts-capcut.md` | CapCut AI prompts |
+| `05-auto-caption-settings.md` | Caption style |
+| `06-export-settings.md` | Export + file names |
 
 ---
 
-## Fastest Path (Do This Now)
+## Fastest path
 
-1. Open CapCut Desktop or Mobile
-2. Create a new project → 9:16
-3. Follow `01-master-template.md` exactly
-4. Drop your Suno audio
-5. Apply text from `02-text-presets.md`
-6. Export using `06-export-settings.md`
-
-Repeat. This is your factory.
+1. Open CapCut → duplicate MASTER TEMPLATE
+2. Follow EASY-MODE.md in order
+3. Paste lines from QUICK-TEXT.md
+4. Export with 06-export-settings.md
+5. Human watch. Then post.
