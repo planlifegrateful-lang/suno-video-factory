@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate structure + server syntax
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Syntax check sync_server
+        run: python3 -m py_compile server/sync_server.py
+
+      - name: Required files present
+        run: |
+          test -f README.md
+          test -f LAUNCH.md
+          test -f OPERATOR.md
+          test -f PRODUCTION_SYSTEM.md
+          test -f server/sync_server.py
+          test -f capcut/EASY-MODE.md
+          test -f templates/job-manifest.json
+          test -f content-calendar/14-day-plan.md
+          echo "Structure OK"
