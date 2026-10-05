@@ -2,6 +2,8 @@
 
 Record these on your phone. 15-30 seconds. Natural energy. No over-acting.
 
+**NEW MASTER PACK:** See [packs/30-hooks-plan-life-grateful.md](packs/30-hooks-plan-life-grateful.md) for the full 30-hook faceless Islamic trap/R&B engine. Use that as primary source starting immediately.
+
 ---
 
 ## Script 1 – "The Hard Day" (Highest converting)
@@ -76,3 +78,4 @@ It’s not aesthetic. It’s operating system."
 - Speak like you’re talking to one close friend
 - Leave 0.5s silence at the start for the algorithm
 - Add the actual Suno track as background audio (ducked under your voice)
+- **For the 30-Hooks pack: ZERO faces. Hands, objects, prayer rugs, rain, sky, golden hour only.**
