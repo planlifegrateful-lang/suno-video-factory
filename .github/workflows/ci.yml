@@ -13,20 +13,19 @@ concurrency:
 
 jobs:
   validate:
-    name: Validate structure + server syntax
+    name: Validate structure + server safety
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Syntax check sync_server
         run: python3 -m py_compile server/sync_server.py
-
+      - name: Run local server safety tests
+        run: python3 -m unittest discover -s tests -v
       - name: Required files present
         run: |
           test -f README.md
