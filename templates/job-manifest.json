@@ -11,7 +11,9 @@
   "source_assets": [],
   "rights": {
     "audio": "NEEDS_REVIEW",
-    "visuals": "NEEDS_REVIEW"
+    "visuals": "NEEDS_REVIEW",
+    "audio_evidence": [],
+    "visuals_evidence": []
   },
   "ai_disclosure_required": "NEEDS_REVIEW",
   "prompt_versions": [],
