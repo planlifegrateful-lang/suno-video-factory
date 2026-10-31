@@ -51,6 +51,6 @@ A job is `approved` only when factual claims are sourced, audio/visual/voice/bra
 
 - A Suno public page proves that a track is publicly viewable, not that it is commercially cleared.
 - Before public or commercial use, record the exact track/version, the applicable plan at creation/download, a permitted Suno download, lyrics/source rights, and any collaborator permissions.
-- Keep audio and visual rights separate. Both must be explicitly `VERIFIED` before a job can become `sync_ready`.
+- Keep audio and visual rights separate. Both statuses must be `VERIFIED` and `rights.audio_evidence` plus `rights.visuals_evidence` must each contain at least one stable evidence reference before a job can become `sync_ready`.
 - The local publish-sync server binds to loopback and reports channel connections as unverified; it does not call Buffer/YouTube APIs or publish.
 - Its Buffer webhook endpoint is not implemented and returns HTTP 501 until signature verification and event persistence exist.
