@@ -38,7 +38,7 @@ class SyncServerTests(unittest.TestCase):
         self.assertNotIn("connected", sync_server.CHANNELS["youtube"])
 
     def test_job_requires_verified_rights_and_channel_state(self):
-        self.make_job({"status":"approved","target_platforms":["youtube_shorts","tiktok"],"rights":{"audio":"VERIFIED","audio_evidence":["catalog://track-001/download-record"],"visuals":"VERIFIED","visuals_evidence":["library://asset-001/license-record"]}})
+        self.make_job({"status":"approved","target_platforms":["youtube_shorts","tiktok"],"rights":{"audio":"VERIFIED","audio_evidence":["catalog://track-001/download-record"],"visuals":"VERIFIED","visuals_evidence":["library://asset-001/license-record"],"remix":"NOT_A_REMIX"}})
         job = sync_server.load_jobs()[0]
         self.assertFalse(job["sync_ready"])
         self.assertIn("youtube connection not verified by this server", job["blockers"])
@@ -51,14 +51,20 @@ class SyncServerTests(unittest.TestCase):
         self.assertIn("rights.visuals not VERIFIED", job["blockers"])
         self.assertIn("rights.audio_evidence missing", job["blockers"])
         self.assertIn("rights.visuals_evidence missing", job["blockers"])
+        self.assertIn("rights.remix must be NOT_A_REMIX for commercial sync", job["blockers"])
 
     def test_verified_rights_without_evidence_references_remain_blocked(self):
-        self.make_job({"status":"approved","rights":{"audio":"VERIFIED","audio_evidence":[],"visuals":"VERIFIED","visuals_evidence":["  "]}})
+        self.make_job({"status":"approved","rights":{"audio":"VERIFIED","audio_evidence":[],"visuals":"VERIFIED","visuals_evidence":["  "],"remix":"NOT_A_REMIX"}})
         job = sync_server.load_jobs()[0]
         self.assertIn("rights.audio_evidence missing", job["blockers"])
         self.assertIn("rights.visuals_evidence missing", job["blockers"])
         self.assertFalse(job["sync_ready"])
 
+    def test_remix_output_never_passes_commercial_sync_gate(self):
+        self.make_job({"status":"approved","rights":{"audio":"VERIFIED","audio_evidence":["catalog://track/download"],"visuals":"VERIFIED","visuals_evidence":["library://asset/license"],"remix":"REMIX"}})
+        job = sync_server.load_jobs()[0]
+        self.assertIn("rights.remix must be NOT_A_REMIX for commercial sync", job["blockers"])
+        self.assertFalse(job["sync_ready"])
     def test_malformed_manifest_is_reported_without_crashing(self):
         folder = self.make_job({"status":"draft"})
         (folder / "manifest.json").write_text("{bad json", encoding="utf-8")
