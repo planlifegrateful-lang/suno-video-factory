@@ -48,7 +48,9 @@ class SyncServerTests(unittest.TestCase):
         self.make_job({"status":"approved"})
         job = sync_server.load_jobs()[0]
         self.assertIn("rights.audio not VERIFIED", job["blockers"])
-        self.assertIn("rights.visuals not VERIFIED", job["blockers"])\n        self.assertIn("rights.audio_evidence missing", job["blockers"])\n        self.assertIn("rights.visuals_evidence missing", job["blockers"])
+        self.assertIn("rights.visuals not VERIFIED", job["blockers"])
+        self.assertIn("rights.audio_evidence missing", job["blockers"])
+        self.assertIn("rights.visuals_evidence missing", job["blockers"])
 
     def test_verified_rights_without_evidence_references_remain_blocked(self):
         self.make_job({"status":"approved","rights":{"audio":"VERIFIED","audio_evidence":[],"visuals":"VERIFIED","visuals_evidence":["  "]}})
@@ -56,6 +58,7 @@ class SyncServerTests(unittest.TestCase):
         self.assertIn("rights.audio_evidence missing", job["blockers"])
         self.assertIn("rights.visuals_evidence missing", job["blockers"])
         self.assertFalse(job["sync_ready"])
+
     def test_malformed_manifest_is_reported_without_crashing(self):
         folder = self.make_job({"status":"draft"})
         (folder / "manifest.json").write_text("{bad json", encoding="utf-8")
@@ -67,7 +70,9 @@ class SyncServerTests(unittest.TestCase):
         template = Path(__file__).resolve().parents[1] / "templates" / "job-manifest.json"
         manifest = json.loads(template.read_text(encoding="utf-8"))
         self.assertEqual(manifest["rights"]["audio"], "NEEDS_REVIEW")
-        self.assertEqual(manifest["rights"]["visuals"], "NEEDS_REVIEW")\n        self.assertEqual(manifest["rights"]["audio_evidence"], [])\n        self.assertEqual(manifest["rights"]["visuals_evidence"], [])
+        self.assertEqual(manifest["rights"]["visuals"], "NEEDS_REVIEW")
+        self.assertEqual(manifest["rights"]["audio_evidence"], [])
+        self.assertEqual(manifest["rights"]["visuals_evidence"], [])
         self.assertEqual(manifest["target_platforms"], ["youtube_shorts", "tiktok"])
 
 
