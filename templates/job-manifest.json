@@ -13,7 +13,8 @@
     "audio": "NEEDS_REVIEW",
     "visuals": "NEEDS_REVIEW",
     "audio_evidence": [],
-    "visuals_evidence": []
+    "visuals_evidence": [],
+    "remix": "NEEDS_REVIEW"
   },
   "ai_disclosure_required": "NEEDS_REVIEW",
   "prompt_versions": [],
