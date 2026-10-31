@@ -1,13 +1,15 @@
-# OPERATOR RUNBOOK – Suno Video Factory
+# OPERATOR RUNBOOK — Suno Video Factory
 
 ## Daily loop
-1. Pull or select new Suno track from @planlifegrateful
-2. Run CapCut EASY-MODE (7 min)
-3. Export → upload / Buffer queue
-4. Update job manifest status after review
-5. Check `GET /sync` for blockers
+1. Select an existing Suno track and exact version.
+2. Check its existing PLG Music — Master Song Catalog record.
+3. Verify commercial-use/download evidence before public or commercial use.
+4. Prepare a private CapCut draft using EASY-MODE.
+5. Human-review the complete export; only then mark the job approved.
+6. Check `GET /sync` for local job blockers.
 
 ## Server commands
+
 ```bash
 python3 server/sync_server.py
 curl -s http://127.0.0.1:8787/sync | jq
@@ -15,23 +17,20 @@ curl -s http://127.0.0.1:8787/channels | jq
 curl -s http://127.0.0.1:8787/jobs | jq
 ```
 
-## When TikTok is disconnected
-1. Open Buffer → reconnect hustleguru46
-2. Update `CHANNELS["tiktok"]["connected"] = True` in `server/sync_server.py` (or make it env-driven later)
-3. Restart server → GET /sync should clear the blocker
+## Channel connection uncertainty
+1. Check the channel directly in Buffer or the platform's own dashboard.
+2. Do not edit a local boolean to claim it is connected; this server does not call provider APIs.
+3. Keep the server state unverified until an authenticated integration can verify the connection and record its evidence.
 
 ## Rights gate
-Never set status to `approved` while any rights field is `NEEDS_REVIEW`.
+Never set status to `approved` unless both `rights.audio` and `rights.visuals` are `VERIFIED`, both matching evidence arrays contain stable references, and `rights.remix` is `NOT_A_REMIX`. Suno's current Terms restrict Remixes to non-commercial use regardless of paid tier. A public Suno page, a current subscription, or a profile count is not commercial-use evidence. For each exact track/version, record the permitted Suno download, plan/tier active at download time, and download date; record the source/license/permission for each visual. This records contractual permission evidence, not a guarantee of copyright ownership.
 
 ## What this system does NOT do
-- Does not download Suno audio for you
-- Does not run CapCut headlessly
-- Does not upload or schedule posts (Buffer + human do that)
-- Does not invent testimonials or metrics
+- Does not download Suno audio.
+- Does not run CapCut headlessly.
+- Does not upload or schedule posts.
+- Does not query Buffer/YouTube connection APIs.
+- Does not invent rights, testimonials, or metrics.
 
 ## Metrics
-| Metric | Target |
-|--------|--------|
-| Videos exported / day | ≥3 |
-| Posts live / day | ≥3 |
-| Jobs with blockers | 0 after reconnect |
+Track exported videos, approved jobs, published posts, rights evidence, clicks, and actual revenue separately. Do not treat profile counters as revenue.

@@ -10,15 +10,7 @@ This repository is the content-operations layer. It defines production contracts
 
 ## Content modes
 
-Use the same pipeline contract for:
-
-- UGC ads
-- motivational reels
-- faceless voiceover videos
-- product demos
-- disclosed AI-avatar videos
-- music-led videos
-- cinematic short-form stories
+Use the same pipeline contract for UGC ads, motivational reels, faceless voiceover videos, product demos, disclosed AI-avatar videos, music-led videos, and cinematic short-form stories.
 
 ## Production contract
 
@@ -51,28 +43,14 @@ jobs/{YYYY-MM-DD}_{slug}/
 8. **Export** — render platform variants from the approved master; do not publish unreviewed drafts.
 9. **Content ops** — create platform-specific descriptions and schedule only after approval.
 
-## Premium creative rules
-
-- Open with the strongest truthful hook; do not use bait-and-switch claims.
-- Make the first frame understandable without audio.
-- Keep one visual idea per beat and cut on meaning or rhythm.
-- Use a readable text hierarchy: hook, supporting phrase, CTA.
-- Keep subtitles inside platform safe areas and validate contrast.
-- Use music to support the voice, not bury it.
-- End with a specific, low-friction CTA.
-- Create platform variants from one approved source timeline; never resize blindly.
-
 ## Approval gates
 
-A job is `approved` only when:
+A job is `approved` only when factual claims are sourced, audio/visual/voice/brand rights are documented, captions are accurate, required AI disclosures are present, the final export has been watched end-to-end, and the manifest records reviewer and approval timestamp.
 
-- factual claims are sourced or clearly framed as opinion;
-- all audio, visual, voice, and brand assets have a rights/provenance record;
-- captions are accurate and readable;
-- AI-generated or synthetic media is disclosed when required;
-- the final export has been watched end-to-end;
-- the manifest records reviewer and approval timestamp.
+## Suno rights and local status-service truth gate
 
-## No hallucination policy
-
-The system must label unknowns as `NEEDS_REVIEW`. It must not invent testimonials, product results, citations, rights, customer stories, or performance metrics. Generation creates drafts; human review creates publishable work.
+- A Suno public page proves that a track is publicly viewable, not that it is commercially cleared.
+- Before public or commercial use, record the exact track/version, the applicable plan at creation/download, a permitted Suno download, lyrics/source rights, and any collaborator permissions.
+- Keep audio and visual rights separate. Both statuses must be `VERIFIED`, `rights.audio_evidence` and `rights.visuals_evidence` must each contain a stable reference, and `rights.remix` must be `NOT_A_REMIX` before a job can become `sync_ready`. Suno's current Terms prohibit commercial use of Remixes.
+- The local publish-sync server binds to loopback and reports channel connections as unverified; it does not call Buffer/YouTube APIs or publish.
+- Its Buffer webhook endpoint is not implemented and returns HTTP 501 until signature verification and event persistence exist.

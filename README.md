@@ -1,78 +1,55 @@
 # Suno Video Factory v1.0.0
 
-**Turn any Suno track into ready-to-post Reels in minutes.**  
+**Turn a rights-checked Suno track into a reviewable short-form video package.**  
 Built for **Plan Life Grateful**.
 
 [![CI](https://github.com/planlifegrateful-lang/suno-video-factory/actions/workflows/ci.yml/badge.svg)](https://github.com/planlifegrateful-lang/suno-video-factory/actions)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
----
+## Start here
 
-## START HERE (Easiest Way)
+- [CapCut EASY MODE](capcut/EASY-MODE.md)
+- [Launch checklist](LAUNCH.md)
+- [Operator runbook](OPERATOR.md)
+- [Production contract](PRODUCTION_SYSTEM.md)
+- [Publish-sync server](server/README.md)
+- [14-day content plan](content-calendar/14-day-plan.md)
+- [Job manifest template](templates/job-manifest.json)
 
-### → [capcut/EASY-MODE.md](capcut/EASY-MODE.md)
+## How this works
 
-7-minute system. Zero decisions. Then open **[LAUNCH.md](LAUNCH.md)**.
-
----
-
-## Quick Links
-
-| What you need | File |
-|---------------|------|
-| **Make a Reel right now** | [EASY-MODE.md](capcut/EASY-MODE.md) |
-| Copy-paste text only | [QUICK-TEXT.md](capcut/QUICK-TEXT.md) |
-| Launch checklist | [LAUNCH.md](LAUNCH.md) |
-| Operator runbook | [OPERATOR.md](OPERATOR.md) |
-| Full production contract | [PRODUCTION_SYSTEM.md](PRODUCTION_SYSTEM.md) |
-| Publish-sync server | [server/README.md](server/README.md) |
-| 14-day posting plan | [content-calendar/14-day-plan.md](content-calendar/14-day-plan.md) |
-| UGC talking scripts | [ugc-scripts/hook-scripts.md](ugc-scripts/hook-scripts.md) |
-| Job template | [templates/job-manifest.json](templates/job-manifest.json) |
-
----
-
-## How This Works
-
-1. Open **EASY-MODE.md**
-2. Duplicate CapCut master template
-3. Drop Suno audio + background video
-4. Add text from the cheat sheet
-5. Export and post (or queue via Buffer)
-6. Track status with the publish-sync server
-
----
+1. Select an existing Suno track and exact version.
+2. Verify its commercial-use/download evidence in the existing PLG Music — Master Song Catalog.
+3. Prepare the CapCut draft from the existing template.
+4. Human-review audio, visuals, lyrics, rights, disclosures, and export.
+5. Publish only after the required rights and human approval are recorded.
 
 ## Publish-sync server
 
+Run the local status checker:
+
 ```bash
 python3 server/sync_server.py
+curl http://127.0.0.1:8787/health
 curl http://127.0.0.1:8787/sync
 ```
 
-**Important:** The server does **not** upload videos. It reports channel connectivity and job blockers. Human + Buffer perform the actual publish.
-
-Current known blocker (as of last commit): TikTok Buffer for hustleguru46 is marked disconnected. Reconnect in Buffer, then update the CHANNELS flag if needed.
-
----
+**Truth and security limits:** it binds to `127.0.0.1` only, sends no wildcard CORS headers, does not query Buffer/YouTube APIs, and does not upload or schedule. All channel states are **unverified** until an authenticated integration exists. `POST /webhooks/buffer` returns HTTP 501 because signature verification and event persistence are not implemented. Do not configure it as a live webhook.
 
 ## Environment
 
-Copy `.env.example` → `.env`. Only `PORT` is used by the current stdlib server.
+Copy `.env.example` to `.env`. The current standard-library status server uses only `PORT`; its bind address is fixed to loopback. Do not add provider secrets to this repo.
 
----
+## Known limitations
 
-## Known limitations (honest)
+- CapCut editing is manual; there is no headless CapCut API here.
+- Suno catalog access, downloads, and plan evidence are outside this repo.
+- The status server is local-only and does not verify channel connectivity.
+- The server never posts; human approval and the platform's own publishing tools remain required.
+- Each job must set `rights.audio` and `rights.visuals` to `VERIFIED` and include at least one stable reference in each matching `*_evidence` array. Set `rights.remix` to `NOT_A_REMIX`; Suno's current Terms restrict Remixes to non-commercial use even on paid tiers. For audio, record the exact Suno track/version, permitted downloaded file, plan/tier, and download date; for visuals, record the source, license, or permission. A status flag alone is not evidence. This gate records contractual permission evidence; Suno does not warrant that copyright will vest in every Output.
 
-- CapCut workflow is manual (no headless CapCut API)
-- Server never posts; Buffer + human approval required
-- Rights/provenance must be set by the operator
-- Suno downloads and platform account connections are outside this repo
-
----
-
-**Suno:** [suno.com/@planlifegrateful](https://suno.com/@planlifegrateful)  
+**Suno:** [@planlifegrateful](https://suno.com/@planlifegrateful)  
 **Repo:** https://github.com/planlifegrateful-lang/suno-video-factory
 
-MIT License – see LICENSE.
+MIT License — see LICENSE.
