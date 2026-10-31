@@ -47,7 +47,7 @@ Copy `.env.example` to `.env`. The current standard-library status server uses o
 - Suno catalog access, downloads, and plan evidence are outside this repo.
 - The status server is local-only and does not verify channel connectivity.
 - The server never posts; human approval and the platform's own publishing tools remain required.
-- Each job must set `rights.audio` and `rights.visuals` to `VERIFIED` and include at least one stable reference in each matching `*_evidence` array. For audio, record the exact Suno track/version, permitted downloaded file, plan/tier, and download date; for visuals, record the source, license, or permission. A status flag alone is not evidence.
+- Each job must set `rights.audio` and `rights.visuals` to `VERIFIED` and include at least one stable reference in each matching `*_evidence` array. Set `rights.remix` to `NOT_A_REMIX`; Suno's current Terms restrict Remixes to non-commercial use even on paid tiers. For audio, record the exact Suno track/version, permitted downloaded file, plan/tier, and download date; for visuals, record the source, license, or permission. A status flag alone is not evidence. This gate records contractual permission evidence; Suno does not warrant that copyright will vest in every Output.
 
 **Suno:** [@planlifegrateful](https://suno.com/@planlifegrateful)  
 **Repo:** https://github.com/planlifegrateful-lang/suno-video-factory
