@@ -23,7 +23,7 @@ curl -s http://127.0.0.1:8787/jobs | jq
 3. Keep the server state unverified until an authenticated integration can verify the connection and record its evidence.
 
 ## Rights gate
-Never set status to `approved` unless both `rights.audio` and `rights.visuals` are `VERIFIED` and both matching evidence arrays contain stable references. A public Suno page, a current subscription, or a profile count is not commercial-use evidence. For each exact track/version, record the permitted Suno download, plan/tier active at download time, and download date; record the source/license/permission for each visual.
+Never set status to `approved` unless both `rights.audio` and `rights.visuals` are `VERIFIED`, both matching evidence arrays contain stable references, and `rights.remix` is `NOT_A_REMIX`. Suno's current Terms restrict Remixes to non-commercial use regardless of paid tier. A public Suno page, a current subscription, or a profile count is not commercial-use evidence. For each exact track/version, record the permitted Suno download, plan/tier active at download time, and download date; record the source/license/permission for each visual. This records contractual permission evidence, not a guarantee of copyright ownership.
 
 ## What this system does NOT do
 - Does not download Suno audio.
