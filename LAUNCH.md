@@ -28,7 +28,7 @@ curl http://127.0.0.1:8787/sync
 ## 4. Job packet
 - [ ] Copy `templates/job-manifest.json` into `jobs/YYYY-MM-DD_slug/manifest.json`.
 - [ ] Fill brief, script, and platform surfaces.
-- [ ] Set `rights.audio` and `rights.visuals` to `VERIFIED` only when evidence is recorded.
+- [ ] Add stable references to `rights.audio_evidence` and `rights.visuals_evidence`; set each status to `VERIFIED` only after the exact track/version download/plan and visual-source rights are documented.
 - [ ] Set status to `approved` only after human review.
 
 ## Success criteria
