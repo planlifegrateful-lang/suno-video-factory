@@ -39,6 +39,8 @@ def blockers_for(manifest: dict, surfaces: dict) -> list[str]:
             isinstance(item, str) and item.strip() for item in evidence
         ):
             out.append(f"rights.{key}_evidence missing")
+    if rights.get("remix") != "NOT_A_REMIX":
+        out.append("rights.remix must be NOT_A_REMIX for commercial sync")
     if not surfaces.get("youtube"):
         out.append("missing youtube.md")
     if not surfaces.get("tiktok"):
