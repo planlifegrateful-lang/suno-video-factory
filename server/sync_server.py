@@ -34,6 +34,11 @@ def blockers_for(manifest: dict, surfaces: dict) -> list[str]:
     for key in ("audio", "visuals"):
         if rights.get(key) != "VERIFIED":
             out.append(f"rights.{key} not VERIFIED")
+        evidence = rights.get(f"{key}_evidence")
+        if not isinstance(evidence, list) or not any(
+            isinstance(item, str) and item.strip() for item in evidence
+        ):
+            out.append(f"rights.{key}_evidence missing")
     if not surfaces.get("youtube"):
         out.append("missing youtube.md")
     if not surfaces.get("tiktok"):
