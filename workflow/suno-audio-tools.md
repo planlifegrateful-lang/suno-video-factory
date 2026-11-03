@@ -1,6 +1,6 @@
 # Suno audio tools — factory map
 
-Account: [suno.com/@planlifegrateful](https://suno.com/@planlifegrateful)
+Account: [suno.com/@planlifegrateful](https://suno.com/@planlifegrateful)  
 Official help: https://help.suno.com
 
 This file is the audio half of EASY-MODE. CapCut never starts until the clip is locked.
@@ -21,14 +21,27 @@ This file is the audio half of EASY-MODE. CapCut never starts until the clip is 
 | Sharpen an old take | Remaster | paid |
 | Same melody, new style | Cover | paid |
 
-There is **no official public Suno API**. Third-party “Suno APIs” are not Suno. Do not wire them into this factory.
+## Official downloads only
+
+Suno's published help does not document a public API for downloading a user's Library or Workspace. Use the official Suno Library/Workspace → More Actions (…) → Download flow. Do not use unofficial wrappers, scrape the site, replay private endpoints, extract session cookies, record streams, or stream-rip audio. Suno's Terms say copies must be obtained through a download channel Suno makes available.
+
+Current published download allowances (check the account page before each batch):
+- Free: up to 7 lifetime trial downloads; trial downloads are non-commercial.
+- Pro: 20 downloads per month.
+- Premier: 60 downloads per month.
+- Downloading the same song again does not consume another download.
+- Download limits apply to the full Library, including older songs.
+
+Commercial-use gate: the exact eligible download must have been obtained while subscribed to a paid tier. A later subscription does not automatically grant retroactive rights to an earlier free/trial download. A paid download grants contractual commercial-use rights, but Suno does not guarantee copyright protection.
+
+Suno also publishes a C2PA provenance detector API. That detector checks provenance metadata; it is not an API for downloading account-library audio and does not replace the download/rights evidence above.
 
 ## Factory path (Grateful Morning and every Reel)
 
 1. Generate or pick the track on Suno.
 2. Crop dead air. Replace only the broken section. Do not re-roll a good chorus.
 3. Export for CapCut:
-   - Fast path: download the mix, trim 15–22s in CapCut (EASY-MODE Step 2).
+   - Fast path: download the mix through Suno's official Download menu, trim 15–22s in CapCut (EASY-MODE Step 2).
    - UGC talking path: **Split from Mix → Vocals** so you can duck the instrumental under your phone voice.
    - Cinematic / lyrics path: mix is enough.
 4. Name the file `TrackName_Type_Date.wav` or `.mp3` and drop it in the job folder when you have one.
@@ -37,7 +50,7 @@ There is **no official public Suno API**. Third-party “Suno APIs” are not Su
 
 ## Stems — use the cheap split first
 
-From Library: `...` → Get Stems → Extract.
+From Library: `...` → Get Stems → Extract.  
 From Studio: right-click clip → Split Stems.
 
 - **Split from Mix** — 10 credits/stem. Vocal + everything-else. This is the UGC default.
@@ -51,7 +64,7 @@ Cleaner, sparser prompts = cleaner stems. Dense stacks bleed.
 Browser DAW (Chrome, not phone, not Safari MIDI). Chat bar can Cover/Remix stems, rename clips, generate audio from MIDI.
 Effects on tracks. Automation. Wavetable synth. Advanced split on the timeline.
 Premier: unlimited Studio export at 32-bit/48kHz.
-Regular song downloads are capped; Studio export is the leak valve on Premier.
+Regular song downloads are capped; Studio export on eligible Premier workflows is separate.
 
 For this factory, Studio is optional. CapCut Reels do not need 12 stems.
 
@@ -61,4 +74,4 @@ Save the vocal you want as a Persona. Reuse it so the account sounds like one ar
 
 ## Rights note
 
-Generation is a draft. Manifest stays `NEEDS_REVIEW` until you confirm you may use that file commercially on Reels. Do not invent a license in the caption.
+Generation is a draft. Manifest stays `NEEDS_REVIEW` until you confirm the exact file was downloaded through an eligible official channel and may be used commercially. Do not invent a license in the caption.
