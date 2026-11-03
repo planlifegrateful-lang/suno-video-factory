@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ummah Anthems — Music Library</title>
+<style>
+:root{--ink:#17231f;--muted:#68766f;--paper:#f6f7f2;--card:#fff;--line:#dfe6df;--green:#145c43;--mint:#e6f2e9;--gold:#c99b43}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:#102b22;color:#fff;padding:28px 20px 24px} .wrap{max-width:1120px;margin:auto;padding:0 18px}
+.brand{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#c6ddce;font-weight:700}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.05;margin:12px 0 8px}header p{max-width:680px;color:#d4e1d8;margin:0}
+main{padding:26px 0 60px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+input,select{font:inherit;border:1px solid var(--line);background:white;border-radius:12px;padding:12px 14px;color:var(--ink)}
+input{flex:1;min-width:210px}.notice{border:1px solid #e8d8ac;background:#fff9e9;padding:14px 16px;border-radius:14px;margin:18px 0;color:#5d4a20}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.track{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;display:flex;flex-direction:column;min-height:250px}
+.tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:800}
+.track h2{font-size:20px;line-height:1.2;margin:9px 0 6px}.track p{color:var(--muted);margin:0 0 16px;font-size:14px}
+.meta{font-size:12px;color:var(--muted);margin-top:auto;padding:12px 0}
+button{font:inherit;border:0;border-radius:11px;padding:11px 14px;background:var(--green);color:white;font-weight:700;cursor:pointer}
+button.secondary{background:var(--mint);color:var(--green)}button:disabled{background:#d9dfda;color:#69746e;cursor:not-allowed}
+aside{position:sticky;top:16px;background:white;border:1px solid var(--line);border-radius:18px;padding:18px}
+aside h2{margin:0 0 8px;font-size:21px}.muted{color:var(--muted);font-size:13px}
+#selected{padding-left:18px;margin:12px 0}#selected li{margin:6px 0;font-size:14px}
+.total{border-top:1px solid var(--line);padding-top:12px;margin-top:14px;font-weight:800;display:flex;justify-content:space-between}
+.actions{display:grid;gap:8px;margin-top:14px}.empty{background:white;border:1px dashed #bdc9bf;padding:26px;border-radius:16px;color:var(--muted);grid-column:1/-1}
+footer{border-top:1px solid var(--line);padding:20px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.layout{grid-template-columns:1fr}aside{position:static;order:-1}}
+</style></head>
+<body>
+<header><div class="wrap"><div class="brand">Plan Life Grateful · Music</div><h1>Find the sound that speaks to you.</h1><p>Browse the Ummah Anthems collection. Choose individual tracks or build your own shortlist.</p></div></header>
+<main class="wrap">
+<div class="notice"><strong>Preview catalog — not open for paid orders yet.</strong><br>These five titles are documented song projects. Final audio masters, previews and secure checkout links still need to be added. Selecting tracks here does not charge you.</div>
+<div class="toolbar"><input id="search" type="search" placeholder="Search songs or themes…" aria-label="Search songs"><select id="filter" aria-label="Filter by theme"><option value="all">All themes</option><option value="resilience">Resilience</option><option value="faith">Faith</option><option value="urgency">Urgency</option><option value="growth">Growth</option><option value="action">Taking action</option></select></div>
+<div class="layout"><section><div id="catalog" class="grid" aria-live="polite"></div></section>
+<aside><h2>Your selection</h2><p class="muted">Pick the tracks you want. You can change your selection anytime.</p><ul id="selected"><li class="muted">No tracks selected yet.</li></ul><div class="total"><span>Planned price</span><span id="total">$0.00</span></div><p class="muted">Draft pricing target: $3 per song or $7 for the complete 5-song collection. Prices are not active.</p><div class="actions"><button id="all" class="secondary">Select all 5 tracks</button><button id="clear" class="secondary">Clear selection</button><button id="checkout" disabled>Checkout not available yet</button></div><p id="status" class="muted" aria-live="polite">Checkout will open after audio and payment links are verified.</p></aside></div>
+</main><footer><div class="wrap">Plan Life Grateful · Music catalog preview. No payment is collected on this page.</div></footer>
+<script>
+const tracks=[
+{id:"dont-give-up",title:"Don’t Give Up",theme:"resilience",description:"A hard motivational track about holding steady through pressure.",bpm:140},
+{id:"five-pillars",title:"Five Pillars",theme:"faith",description:"A cinematic spiritual anthem centered on the foundations of the deen.",bpm:138},
+{id:"ummah-wakeup",title:"Ummah Wakeup",theme:"urgency",description:"An urgent call to purpose, responsibility and action.",bpm:142},
+{id:"pressure-makes-diamonds",title:"Pressure Makes Diamonds",theme:"growth",description:"A triumphant story about patience and growth through hardship.",bpm:140},
+{id:"start-today",title:"Start Today",theme:"action",description:"An energetic reminder to turn intention into the next good action.",bpm:136}
+];
+const chosen=new Set();const $=id=>document.getElementById(id);
+function render(){const q=$("search").value.toLowerCase().trim(),f=$("filter").value;const shown=tracks.filter(t=>(f==="all"||t.theme===f)&&(t.title+" "+t.description+" "+t.theme).toLowerCase().includes(q));$("catalog").innerHTML=shown.length?shown.map(t=>'<article class="track"><span class="tag">'+t.theme+'</span><h2>'+t.title+'</h2><p>'+t.description+'</p><div class="meta">'+t.bpm+' BPM · Audio master pending</div><button class="'+(chosen.has(t.id)?"secondary":"")+'" data-id="'+t.id+'">'+(chosen.has(t.id)?"Remove from selection":"Add to selection")+'</button></article>').join(""):'<div class="empty">No songs match that search. Try another word or theme.</div>';document.querySelectorAll("[data-id]").forEach(b=>b.addEventListener("click",()=>{chosen.has(b.dataset.id)?chosen.delete(b.dataset.id):chosen.add(b.dataset.id);render();}));const items=tracks.filter(t=>chosen.has(t.id));$("selected").innerHTML=items.length?items.map(t=>'<li>'+t.title+'</li>').join(""):'<li class="muted">No tracks selected yet.</li>';$("total").textContent=items.length===5?"$7.00 collection":items.length?"$"+(items.length*3).toFixed(2):"$0.00";$("status").textContent=items.length?"Selection saved on this page. Payment is not enabled yet.":"Checkout will open after audio and payment links are verified."}
+$("search").addEventListener("input",render);$("filter").addEventListener("change",render);$("all").addEventListener("click",()=>{tracks.forEach(t=>chosen.add(t.id));render()});$("clear").addEventListener("click",()=>{chosen.clear();render()});render();
+</script></body></html>
