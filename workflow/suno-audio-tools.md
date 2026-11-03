@@ -26,11 +26,13 @@ This file is the audio half of EASY-MODE. CapCut never starts until the clip is 
 Suno's published help does not document a public API for downloading a user's Library or Workspace. Use the official Suno Library/Workspace → More Actions (…) → Download flow. Do not use unofficial wrappers, scrape the site, replay private endpoints, extract session cookies, record streams, or stream-rip audio. Suno's Terms say copies must be obtained through a download channel Suno makes available.
 
 Current published download allowances (check the account page before each batch):
-- Free: up to 7 lifetime trial downloads; trial downloads are non-commercial.
+- Free: up to 7 lifetime trial downloads; trial downloads are non-commercial. Suno's download overview also says users who joined on/after September 3, 2026 may receive occasional trial downloads, so verify the account's actual allowance.
 - Pro: 20 downloads per month.
 - Premier: 60 downloads per month.
 - Downloading the same song again does not consume another download.
 - Download limits apply to the full Library, including older songs.
+
+For a bulk export, Suno's official help says to select multiple songs in Library or Workspace (Ctrl-click on Windows, Command-click on Mac; Shift selects a range), right-click the selection, choose **Download All**, then choose the file type. Suno packages the selected songs into a ZIP. This is the supported bulk path; the factory does not automate Suno sign-in or download requests.
 
 Commercial-use gate: the exact eligible download must have been obtained while subscribed to a paid tier. A later subscription does not automatically grant retroactive rights to an earlier free/trial download. A paid download grants contractual commercial-use rights, but Suno does not guarantee copyright protection.
 
@@ -63,8 +65,7 @@ Cleaner, sparser prompts = cleaner stems. Dense stacks bleed.
 
 Browser DAW (Chrome, not phone, not Safari MIDI). Chat bar can Cover/Remix stems, rename clips, generate audio from MIDI.
 Effects on tracks. Automation. Wavetable synth. Advanced split on the timeline.
-Premier: unlimited Studio export at 32-bit/48kHz.
-Regular song downloads are capped; Studio export on eligible Premier workflows is separate.
+Suno's help documents a Studio workflow exception to the regular download limits. Confirm the exact feature and plan access in the account before relying on it.
 
 For this factory, Studio is optional. CapCut Reels do not need 12 stems.
 
