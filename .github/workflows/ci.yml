@@ -3,6 +3,11 @@ name: CI
 on:
   push:
     branches: [main, master]
+    paths:
+      - 'server/**'
+      - 'tests/**'
+      - 'customer-music-store/**'
+      - '.github/workflows/ci.yml'
   pull_request:
     branches: [main, master]
   workflow_dispatch:
@@ -13,7 +18,7 @@ concurrency:
 
 jobs:
   validate:
-    name: Validate structure + server syntax
+    name: Validate structure + server syntax + customer store
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -38,3 +43,34 @@ jobs:
           test -f templates/job-manifest.json
           test -f content-calendar/14-day-plan.md
           echo "Structure OK"
+
+      - name: Validate customer music store
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import re
+
+          page = Path("customer-music-store/index.html").read_text()
+          class Check(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids = set()
+              def handle_starttag(self, tag, attrs):
+                  self.ids.update(v for k, v in attrs if k == "id")
+
+          parser = Check()
+          parser.feed(page)
+          required = {"search", "filter", "catalog", "selected", "total", "all", "clear", "checkout", "status"}
+          missing = required - parser.ids
+          if missing:
+              raise SystemExit(f"Missing customer controls: {sorted(missing)}")
+          if len(re.findall(r'\{id:"', page)) != 5:
+              raise SystemExit("Expected five documented song entries")
+          scripts = re.findall(r"<script>(.*?)</script>", page, re.S)
+          if len(scripts) != 1:
+              raise SystemExit("Expected one inline application script")
+          Path("/tmp/customer-store.js").write_text(scripts[0])
+          print("Customer catalog structure: PASS")
+          PY
+          node --check /tmp/customer-store.js
