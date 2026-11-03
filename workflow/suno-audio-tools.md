@@ -34,7 +34,7 @@ Current published download allowances (check the account page before each batch)
 
 For a bulk export, Suno's official help says to select multiple songs in Library or Workspace (Ctrl-click on Windows, Command-click on Mac; Shift selects a range), right-click the selection, choose **Download All**, then choose the file type. Suno packages the selected songs into a ZIP. This is the supported bulk path; the factory does not automate Suno sign-in or download requests.
 
-Commercial-use gate: the exact eligible download must have been obtained while subscribed to a paid tier. A later subscription does not automatically grant retroactive rights to an earlier free/trial download. A paid download grants contractual commercial-use rights, but Suno does not guarantee copyright protection.
+Commercial-use gate: verify that the exact track was created while subscribed to an eligible Pro/Premier tier and downloaded through an official permitted channel while that paid subscription was active. Suno's Help Center describes both paid-tier creation and paid-tier download as relevant to commercial use. A later subscription does not retroactively grant commercial rights to a song made on the free plan. If either the creation date, download date, or plan is unclear, keep the track non-commercial. A permitted paid download grants contractual commercial-use rights, but Suno does not guarantee copyright protection.
 
 Suno also publishes a C2PA provenance detector API. That detector checks provenance metadata; it is not an API for downloading account-library audio and does not replace the download/rights evidence above.
 
