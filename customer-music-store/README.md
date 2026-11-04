@@ -6,7 +6,7 @@ A phone-friendly customer catalog for the Ummah Anthems music projects.
 - Search tracks and filter by theme.
 - Add/remove individual songs.
 - Select the full five-song collection.
-- See the selected tracks and draft price calculation.
+- See the selected tracks and draft price calculation (temporary; refresh/close clears it).
 - Responsive layout for mobile and desktop.
 
 ## Important launch gates
