@@ -1,26 +1,31 @@
-# Publish-sync server
+# Publish-sync status server
 
-Keeps YouTube, TikTok, and job packets on one status plane.
-It does **not** upload videos. It tells you what is connected and what is blocking a sync publish.
+This is a **local-only status checker**, not a publishing integration.
 
 ```bash
 python3 server/sync_server.py
-# http://127.0.0.1:8787/sync
+curl http://127.0.0.1:8787/health
+curl http://127.0.0.1:8787/sync
 ```
+
+The server binds to `127.0.0.1` only. It sends no wildcard CORS headers and does not accept remote/LAN connections. Do not put it behind a public reverse proxy.
 
 | Route | Meaning |
 |---|---|
-| GET /health | liveness |
-| GET /channels | Charles + hustleguru46 + YT Music |
-| GET /jobs | every folder under jobs/ |
-| GET /jobs/{id} | one job + blockers |
-| GET /sync | ready count + next human action |
-| POST /webhooks/buffer | accept Buffer callbacks (log only) |
+| GET /health | local process liveness |
+| GET /channels | configured channel labels; connection state is **unverified** |
+| GET /jobs | job folders, manifest state, rights and blockers |
+| GET /jobs/{id} | one job and blockers |
+| GET /sync | counts and next human action |
 
-`sync_ready` is true only when:
-- manifest.status is `approved` or `ready`
-- youtube.md and tiktok.md exist
-- rights are not NEEDS_REVIEW
-- Buffer YouTube **and** TikTok are connected
+There is no live Buffer, TikTok, or YouTube API call. The server does not upload, schedule, or prove that an account is connected.
 
-Right now TikTok Buffer is disconnected, so no job is sync_ready. Reconnect hustleguru46, then GET /sync again.
+A job is `sync_ready` only when:
+- manifest status is `approved` or `ready`;
+- `rights.audio` and `rights.visuals` are explicitly `VERIFIED`;
+- `youtube.md` and `tiktok.md` exist; and
+- both channel states are verified by a future authenticated provider integration.
+
+At present, channel states are `unverified`, so the server will not mark a job sync-ready.
+
+`POST /webhooks/buffer` returns HTTP 501. No signature verification or event persistence is implemented; do not configure this placeholder as a Buffer webhook.

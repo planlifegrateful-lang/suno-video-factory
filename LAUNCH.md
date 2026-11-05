@@ -1,37 +1,37 @@
-# LAUNCH CHECKLIST – Suno Video Factory
+# LAUNCH CHECKLIST — Suno Video Factory
 
-**Goal:** First video exported and queued within 1 hour using EASY-MODE.
+**Goal:** prepare one rights-checked, reviewable video package without publishing automatically.
 
-## 1. CapCut path (fastest revenue content)
-- [ ] Open [capcut/EASY-MODE.md](capcut/EASY-MODE.md)
-- [ ] Duplicate master template
-- [ ] Drop latest Suno track + background
-- [ ] Paste text from [capcut/QUICK-TEXT.md](capcut/QUICK-TEXT.md)
-- [ ] Export 9:16 MP4
-- [ ] Upload to YouTube Shorts + TikTok (or Buffer)
+## 1. Rights preflight
+- [ ] Find the exact track/version in PLG Music — Master Song Catalog.
+- [ ] Confirm the permitted Suno download and applicable paid plan evidence.
+- [ ] Confirm lyrics/source rights and any collaborator permissions.
+- [ ] If evidence is missing, keep the work private and do not monetize or distribute.
 
-## 2. Publish-sync server (status plane)
+## 2. CapCut path
+- [ ] Open [capcut/EASY-MODE.md](capcut/EASY-MODE.md).
+- [ ] Duplicate the master template.
+- [ ] Add the approved audio and visual assets.
+- [ ] Fix captions and review the full export end-to-end.
+- [ ] Save the export as a draft until human approval is recorded.
+
+## 3. Local status checker
 ```bash
-cd server
-python3 sync_server.py
-# or: PORT=8787 python3 sync_server.py
+python3 server/sync_server.py
 curl http://127.0.0.1:8787/health
 curl http://127.0.0.1:8787/sync
 ```
-- [ ] Confirm `/health` returns ok
-- [ ] Read `next_human_action` from `/sync`
-- [ ] Reconnect Buffer TikTok (hustleguru46) if disconnected
+- [ ] Confirm `/health` returns ok.
+- [ ] Read local job blockers from `/sync`.
+- [ ] Verify Buffer/YouTube status manually; this server does not query those APIs.
 
-## 3. Job packet
-- [ ] Copy `templates/job-manifest.json` into a new folder under `jobs/YYYY-MM-DD_slug/`
-- [ ] Fill brief.md, script, youtube.md, tiktok.md
-- [ ] Set manifest status to `approved` only after human review
+## 4. Job packet
+- [ ] Copy `templates/job-manifest.json` into `jobs/YYYY-MM-DD_slug/manifest.json`.
+- [ ] Fill brief, script, and platform surfaces.
+- [ ] Add stable references to `rights.audio_evidence` and `rights.visuals_evidence`; set each status to `VERIFIED` only after the exact track/version download/plan and visual-source rights are documented.
+- [ ] Set status to `approved` only after human review.
 
-## 4. Content calendar
-- [ ] Open [content-calendar/14-day-plan.md](content-calendar/14-day-plan.md)
-- [ ] Schedule next 3 posts today
-
-## Success criteria (Day 1)
-- At least 1 exported video posted
-- Sync server running and reporting channel status
-- One job folder with complete surfaces
+## Success criteria
+- One rights-checked video exported and reviewed.
+- Manifest records exact source, version, rights evidence, and approval.
+- No post is published without explicit approval.
